@@ -1,0 +1,76 @@
+{
+    "name": "WForc",
+    "short_name": "WForc",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#4b5fcf",
+    "theme_color": "#4b5fcf",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/res/pwa-icons/64.png",
+            "type": "image/png",
+            "sizes": "64x64"
+        },
+        {
+            "src": "/res/pwa-icons/64.png",
+            "type": "image/png",
+            "sizes": "64x64"
+        },
+        {
+            "src": "/res/pwa-icons/64.png",
+            "type": "image/png",
+            "sizes": "64x64"
+        },
+        {
+            "src": "/res/pwa-icons/72.png",
+            "type": "image/png",
+            "sizes": "72x72"
+        },
+        {
+            "src": "/res/pwa-icons/96.png",
+            "type": "image/png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "/res/pwa-icons/120.png",
+            "type": "image/png",
+            "sizes": "120x120"
+        },
+        {
+            "src": "/res/pwa-icons/128.png",
+            "type": "image/png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "/res/pwa-icons/144.png",
+            "type": "image/png",
+            "sizes": "144x144"
+        },
+        {
+            "src": "/res/pwa-icons/152.png",
+            "type": "image/png",
+            "sizes": "152x152"
+        },
+        {
+            "src": "/res/pwa-icons/180.png",
+            "type": "image/png",
+            "sizes": "180x180"
+        },
+        {
+            "src": "/res/pwa-icons/192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/res/pwa-icons/384.png",
+            "type": "image/png",
+            "sizes": "384x384"
+        },
+        {
+            "src": "/res/pwa-icons/512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}
