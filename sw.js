@@ -53,38 +53,37 @@ self.addEventListener("fetch", (e) => {
 
   e.respondWith(
     caches.match(cache === dynamicCache ? name : e.request).then((cacheRes) => {
-      // switch (cache) {
-      //   case staticCache:
-      //     return cacheRes || fetch(e.request).catch((err) => console.log(err));
-      //   case lazyCache:
-      //     return (
-      //       cacheRes ||
-      //       fetch(e.request).then((fetchRes) => {
-      //         return caches.open(cache).then((c) => {
-      //           c.put(e.request.url, fetchRes.clone());
-      //           return fetchRes;
-      //         });
-      //       })
-      //     );
-      //   case dynamicCache:
-      //     return fetch(e.request).then(
-      //       (fetchRes) => {
-      //         return caches.open(cache).then((c) => {
-      //           if (cacheRes) {
-      //             c.delete(name);
-      //             c.put(name, fetchRes.clone());
-      //           } else {
-      //             c.put(name, fetchRes.clone());
-      //           }
-      //           return fetchRes;
-      //         });
-      //       },
-      //       (err) => cacheRes
-      //     );
-      //   default:
-      //     return fetch(e.request).catch((err) => console.log(err, cache));
-      // }
-      return fetch(e.request);
+      switch (cache) {
+        case staticCache:
+          return cacheRes || fetch(e.request).catch((err) => console.log(err));
+        case lazyCache:
+          return (
+            cacheRes ||
+            fetch(e.request).then((fetchRes) => {
+              return caches.open(cache).then((c) => {
+                c.put(e.request.url, fetchRes.clone());
+                return fetchRes;
+              });
+            })
+          );
+        case dynamicCache:
+          return fetch(e.request).then(
+            (fetchRes) => {
+              return caches.open(cache).then((c) => {
+                if (cacheRes) {
+                  c.delete(name);
+                  c.put(name, fetchRes.clone());
+                } else {
+                  c.put(name, fetchRes.clone());
+                }
+                return fetchRes;
+              });
+            },
+            (err) => cacheRes
+          );
+        default:
+          return fetch(e.request).catch((err) => console.log(err, cache));
+      }
     })
   );
 });
