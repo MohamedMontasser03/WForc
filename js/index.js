@@ -377,10 +377,11 @@ function HandleClicks(clickables, fetchWeather) {
           el.style.setProperty("--play", "running");
           navigator.geolocation.getCurrentPosition(
             async (loc) => {
-              await fetchWeather(loc.coords.latitude, loc.coords.longitude);
-              el.style.setProperty("--play", "paused");
+              await fetchWeather(loc.coords.latitude, loc.coords.longitude).then(() => el.style.setProperty("--play", "paused"));
             },
-            (err) => fetchWeather(0, 0),
+            async (err) => {
+              await fetchWeather(0, 0).then(() => el.style.setProperty("--play", "paused"));
+            },
             {
               enableHighAccuracy: true,
               timeout: 2500,
