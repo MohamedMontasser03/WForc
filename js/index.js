@@ -369,7 +369,7 @@ window.onload = () => {
   /* End Click Events */
 };
 
-function HandleClicks(clickables, fetchmeth) {
+function HandleClicks(clickables, fetchWeather) {
   clickables.forEach((el, i, p) => {
     el.onclick = (e) => {
       switch (el.getAttribute("click")) {
@@ -377,7 +377,7 @@ function HandleClicks(clickables, fetchmeth) {
           el.style.setProperty("--play", "running");
           navigator.geolocation.getCurrentPosition(
             async (loc) => {
-              await fetchmeth(loc.coords.latitude, loc.coords.longitude);
+              await fetchWeather(loc.coords.latitude, loc.coords.longitude);
               el.style.setProperty("--play", "paused");
             },
             (err) => fetchWeather(0, 0),
