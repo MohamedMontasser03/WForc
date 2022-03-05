@@ -72,10 +72,8 @@ self.addEventListener("fetch", (e) => {
               return caches.open(cache).then((c) => {
                 if (cacheRes) {
                   c.delete(name);
-                  c.put(name, fetchRes.clone());
-                } else {
-                  c.put(name, fetchRes.clone());
                 }
+                  c.put(name, fetchRes.clone());
                 return fetchRes;
               });
             },
@@ -91,7 +89,6 @@ self.addEventListener("fetch", (e) => {
 self.addEventListener("message", (e) => {
   switch (e.data.type) {
     case 0:
-      console.log(e.data.msg);
       sendMessage({ type: 0, msg: "SW ECHO" }, e.source.id);
       break;
   }
