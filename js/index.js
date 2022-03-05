@@ -22,7 +22,6 @@ if ("serviceWorker" in navigator) {
   navigator.serviceWorker.addEventListener("message", (e) => {
     switch (e.data.type) {
       case 0:
-        console.log(e.data.msg);
         break;
     }
   });
@@ -72,7 +71,6 @@ const appinit = () => {
         rdata.json(),
         rdataforc.json(),
       ]);
-      console.log(data);
       setcurWeath(data);
       loc.textContent = `${data.location.name} - ${data.location.region} - ${data.location.country}`;
 
@@ -376,7 +374,6 @@ function HandleClicks(clickables, fetchmeth) {
     el.onclick = (e) => {
       switch (el.getAttribute("click")) {
         case "refw":
-          console.log("dd");
           el.style.setProperty("--play", "running");
           navigator.geolocation.getCurrentPosition(
             async (loc) => {
