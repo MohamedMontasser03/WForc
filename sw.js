@@ -42,6 +42,9 @@ self.addEventListener("activate", (e) => {
 });
 
 self.addEventListener("fetch", (e) => {
+  if(!event.request.url.startsWith('http')){
+     return fetch(e.request).catch((err) => console.log(err, cache));
+}
   let url = new URL(e.request.url);
   let name = url.href.replace(url.search, "");
   let cache =
